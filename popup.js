@@ -4,6 +4,8 @@ const saveContactButton = document.getElementById("save-contact");
 const removeContactButton = document.getElementById("remove-contact");
 const contactsContainer = document.getElementById("contacts");
 const darkModeToggle = document.getElementById("dark-mode-toggle");
+const exportContactsButton = document.getElementById("export-contacts");
+const importContactsInput = document.getElementById("import-contacts");
 
 let isEditing = false;
 let editingIndex = -1;
@@ -33,6 +35,12 @@ saveContactButton.addEventListener("click", saveOrUpdateContact);
 
 // Remove contact
 removeContactButton.addEventListener("click", removeContact);
+
+// Export contacts
+exportContactsButton.addEventListener("click", exportContacts);
+
+// Import contacts
+importContactsInput.addEventListener("change", importContacts);
 
 async function saveOrUpdateContact() {
   const email = document.getElementById("email").value;
@@ -138,23 +146,57 @@ async function startEditing(index) {
 
   contactForm.style.display = "block";
   toggleFormButton.textContent = "-";
-  removeContactButton.style.display = "inline";  // Show "Remove" button
-
+  removeContactButton.style.display = "inline";
+  
   isEditing = true;
   editingIndex = index;
 }
 
 async function removeContact() {
   let { contacts = [] } = await browser.storage.local.get("contacts");
-
-  contacts.splice(editingIndex, 1);  // Remove the contact at editingIndex
+  contacts.splice(editingIndex, 1);
   await browser.storage.local.set({ contacts });
-
+  
   loadContacts();
   contactForm.reset();
   contactForm.style.display = "none";
   toggleFormButton.textContent = "+";
   removeContactButton.style.display = "none";
+}
+
+// Export contacts as JSON file
+async function exportContacts() {
+  const { contacts = [] } = await browser.storage.local.get("contacts");
+  const dataStr = JSON.stringify(contacts, null, 2);
+  const blob = new Blob([dataStr], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "address_book.json";
+  link.click();
+  
+  URL.revokeObjectURL(url);
+}
+
+// Import contacts from JSON file
+async function importContacts(event) {
+  const file = event.target.files[0];
+  if (file) {
+    const text = await file.text();
+    try {
+      const importedContacts = JSON.parse(text);
+      if (Array.isArray(importedContacts)) {
+        await browser.storage.local.set({ contacts: importedContacts });
+        loadContacts();
+        alert("Contacts imported successfully.");
+      } else {
+        alert("Invalid file format.");
+      }
+    } catch (e) {
+      alert("Failed to parse the file. Make sure it's a valid JSON.");
+    }
+  }
 }
 
 function resetForm() {

@@ -1,7 +1,9 @@
+/* Base Styles */
 body {
   font-family: Arial, sans-serif;
-  width: 250px;
+  width: 300px; /* Increased width for better layout */
   padding: 10px;
+  margin: 0;
   transition: background 0.3s, color 0.3s;
 }
 
@@ -9,15 +11,17 @@ body {
   text-align: left;
 }
 
-/* Header styling to place dark mode toggle in the top right */
+/* Header Styling */
 #header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 #header h2 {
   margin: 0;
+  font-size: 18px;
 }
 
 #dark-mode-toggle {
@@ -25,70 +29,214 @@ body {
   border: none;
   font-size: 20px;
   cursor: pointer;
+  padding: 0;
+  margin-left: 10px;
 }
 
+/* Toggle Form Button */
 #toggle-form {
   width: 100%;
-  font-size: 20px;
-  padding: 5px;
+  font-size: 24px;
+  padding: 8px;
+  margin-bottom: 10px;
+  background-color: #0078d7;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
+#toggle-form:hover {
+  background-color: #005a9e;
+}
+
+/* Contact Form Styling */
 form {
   margin-top: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 form label {
   font-weight: bold;
+  margin-top: 5px;
 }
 
 form input {
   width: 100%;
   margin-bottom: 10px;
-  padding: 5px;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
-button {
-  padding: 5px;
+form input:focus {
+  border-color: #0078d7;
+  outline: none;
 }
 
+form button {
+  padding: 8px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#save-contact {
+  background-color: #28a745;
+  color: white;
+}
+
+#save-contact:hover {
+  background-color: #218838;
+}
+
+#remove-contact {
+  background-color: #dc3545;
+  color: white;
+  margin-top: 5px;
+}
+
+#remove-contact:hover {
+  background-color: #c82333;
+}
+
+/* Contact Cards */
 .contact-card {
   border: 1px solid #ccc;
   padding: 10px;
   margin-top: 10px;
   position: relative;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.contact-card:hover {
+  background-color: #f1f1f1;
+}
+
+.contact-card p {
+  margin: 5px 0;
+  word-wrap: break-word;
 }
 
 .copy-button, .edit-button {
   background: none;
   border: none;
-  color: blue;
+  color: #0078d7;
   cursor: pointer;
-  margin-right: 5px;
+  margin-left: 5px;
+  font-size: 14px;
 }
 
+.copy-button:hover, .edit-button:hover {
+  text-decoration: underline;
+}
+
+/* Edit Button Positioning */
 .edit-button {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 10px;
+  right: 10px;
+  font-size: 14px;
 }
 
-/* Dark mode styles */
+/* Import and Export Buttons */
+#import-export-buttons {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#import-export-buttons button,
+#import-export-buttons .import-label {
+  cursor: pointer;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  background-color: #0078d7;
+  color: white;
+  border-radius: 4px;
+  font-size: 14px;
+  text-align: center;
+}
+
+#import-export-buttons button:hover,
+#import-export-buttons .import-label:hover {
+  background-color: #005a9e;
+}
+
+#import-export-buttons input[type="file"] {
+  display: none;
+}
+
+.import-label {
+  display: inline-block;
+}
+
+/* Dark Mode Styles */
 body.dark-mode {
-  background: #444;
+  background: #2c2c2c;
   color: #f1f1f1;
+}
+
+body.dark-mode #toggle-form {
+  background-color: #555;
+}
+
+body.dark-mode #toggle-form:hover {
+  background-color: #333;
+}
+
+body.dark-mode form input {
+  background-color: #444;
+  color: #f1f1f1;
+  border: 1px solid #666;
+}
+
+body.dark-mode form input:focus {
+  border-color: #0078d7;
+}
+
+body.dark-mode #save-contact {
+  background-color: #28a745;
+}
+
+body.dark-mode #save-contact:hover {
+  background-color: #218838;
+}
+
+body.dark-mode #remove-contact {
+  background-color: #dc3545;
+}
+
+body.dark-mode #remove-contact:hover {
+  background-color: #c82333;
 }
 
 body.dark-mode .contact-card {
   border-color: #555;
+  background-color: #3a3a3a;
+}
+
+body.dark-mode .contact-card:hover {
+  background-color: #4a4a4a;
 }
 
 body.dark-mode .copy-button, 
 body.dark-mode .edit-button {
-  color: #87cefa;
+  color: #66b2ff;
 }
 
-body.dark-mode #toggle-form, 
-body.dark-mode #dark-mode-toggle {
-  background-color: #444;
-  color: #f1f1f1;
+body.dark-mode #import-export-buttons button,
+body.dark-mode #import-export-buttons .import-label {
+  background-color: #555;
+  border: 1px solid #666;
+}
+
+body.dark-mode #import-export-buttons button:hover,
+body.dark-mode #import-export-buttons .import-label:hover {
+  background-color: #333;
 }

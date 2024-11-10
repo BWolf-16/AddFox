@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Address Book</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div id="address-book">
+    <!-- Title with Dark Mode toggle in the top right -->
+    <div id="header">
+      <h2>Address Book</h2>
+      <button id="dark-mode-toggle" title="Toggle Dark Mode">🌙</button>
+    </div>
+
+    <!-- Toggle button to show/hide the form -->
+    <button id="toggle-form">+</button>
+    
+    <!-- Contact form (initially hidden) -->
+    <form id="contact-form" style="display: none;">
+      <label>Email:</label>
+      <input type="email" id="email" placeholder="Example@email.com" required>
+      <input type="text" id="description" placeholder="my private email">
+
+      <label>Address:</label>
+      <input type="text" id="street" placeholder="Street, House Number" required>
+      <input type="text" id="city" placeholder="City" required>
+      <input type="text" id="state" placeholder="State" required>
+      <input type="text" id="country" placeholder="Country" required>
+
+      <label>Phone:</label>
+      <input type="text" id="phone" placeholder="00000000000" required>
+      <input type="text" id="description" placeholder="my private phone">
+
+      <button type="button" id="save-contact">Save Contact</button>
+      <button type="button" id="remove-contact" style="display: none;">Remove</button>
+    </form>
+
+    <div id="contacts"></div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

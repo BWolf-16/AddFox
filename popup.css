@@ -1,0 +1,94 @@
+body {
+  font-family: Arial, sans-serif;
+  width: 250px;
+  padding: 10px;
+  transition: background 0.3s, color 0.3s;
+}
+
+#address-book {
+  text-align: left;
+}
+
+/* Header styling to place dark mode toggle in the top right */
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#header h2 {
+  margin: 0;
+}
+
+#dark-mode-toggle {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#toggle-form {
+  width: 100%;
+  font-size: 20px;
+  padding: 5px;
+}
+
+form {
+  margin-top: 10px;
+}
+
+form label {
+  font-weight: bold;
+}
+
+form input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+button {
+  padding: 5px;
+}
+
+.contact-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 10px;
+  position: relative;
+}
+
+.copy-button, .edit-button {
+  background: none;
+  border: none;
+  color: blue;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.edit-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  background: #444;
+  color: #f1f1f1;
+}
+
+body.dark-mode .contact-card {
+  border-color: #555;
+}
+
+body.dark-mode .copy-button, 
+body.dark-mode .edit-button {
+  color: #87cefa;
+}
+
+body.dark-mode #toggle-form, 
+body.dark-mode #dark-mode-toggle {
+  background-color: #444;
+  color: #f1f1f1;
+}

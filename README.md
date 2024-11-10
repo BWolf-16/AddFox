@@ -1,5 +1,8 @@
 https://addons.mozilla.org/en-US/firefox/addon/addfox/
 
+address book for your online life!
+Save and manage contacts with emails, addresses, and phone numbers
+
 To test, go to `about:debugging#/runtime/this-firefox`, select "Load Temporary Add-on," and upload this as a ZIP file.
 
 This is a semi-beta add-on. Feel free to do whatever you want with it, but I am not responsible for any actions taken using it (yes, it's open source LOL).

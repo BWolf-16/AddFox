@@ -19,24 +19,30 @@
     <!-- Contact form (initially hidden) -->
     <form id="contact-form" style="display: none;">
       <label>Email:</label>
-      <input type="email" id="email" placeholder="Example@email.com" required>
-      <input type="text" id="description" placeholder="my private email">
-
+      <input type="email" id="email" placeholder="Description" ><br>
+      
       <label>Address:</label>
-      <input type="text" id="street" placeholder="Street, House Number" required>
-      <input type="text" id="city" placeholder="City" required>
-      <input type="text" id="state" placeholder="State" required>
-      <input type="text" id="country" placeholder="Country" required>
+      <input type="text" id="street" placeholder="Street, House Number" ><br>
+      <input type="text" id="city" placeholder="City" ><br>
+      <input type="text" id="state" placeholder="State" ><br>
+      <input type="text" id="country" placeholder="Country" ><br>
 
       <label>Phone:</label>
-      <input type="text" id="phone" placeholder="00000000000" required>
-      <input type="text" id="description" placeholder="my private phone">
+      <input type="text" id="phone" >
+      <input type="text" id="description" placeholder="Description (e.g., Mobile, Home)"><br>
 
       <button type="button" id="save-contact">Save Contact</button>
       <button type="button" id="remove-contact" style="display: none;">Remove</button>
     </form>
 
     <div id="contacts"></div>
+
+    <!-- Import and Export Buttons -->
+    <div id="import-export-buttons">
+      <button id="export-contacts">Export</button>
+      <input type="file" id="import-contacts" accept=".json" style="display: none;">
+      <label for="import-contacts" class="import-label">Import</label>
+    </div>
   </div>
   <script src="popup.js"></script>
 </body>

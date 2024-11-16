@@ -51,10 +51,10 @@ async function saveOrUpdateContact() {
   const phone = document.getElementById("phone").value;
   const description = document.getElementById("description").value;
 
-  if (!email || !street || !city || !state || !country || !phone) {
-    alert("Please fill out all required fields.");
-    return;
-  }
+    //if (!email || !street || !city || !state || !country || !phone) {
+    //   alert("Please fill out all required fields.");
+    //   return;
+    // }
 
   const contact = {
     email,
@@ -116,7 +116,7 @@ function addCopyListeners() {
 function copyToClipboard(event) {
   const textToCopy = event.target.getAttribute("data-clipboard");
   navigator.clipboard.writeText(textToCopy).then(() => {
-    alert("Copied to clipboard");
+    //alert("Copied to clipboard");
   });
 }
 

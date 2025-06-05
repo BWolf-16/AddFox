@@ -135,7 +135,7 @@ async function startEditing(index) {
   const contact = contacts[index];
 
   document.getElementById("email").value = contact.email;
-  const [street, city, state, country] = contact.address.split(", ");
+  const [street, city, state, country, postcode] = contact.address.split(", ");
   document.getElementById("street").value = street;
   document.getElementById("city").value = city;
   document.getElementById("state").value = state;

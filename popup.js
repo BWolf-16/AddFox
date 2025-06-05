@@ -140,6 +140,7 @@ async function startEditing(index) {
   document.getElementById("city").value = city;
   document.getElementById("state").value = state;
   document.getElementById("country").value = country;
+  document.getElementById("country").value = postcode;
 
   const [phone, description] = contact.phone.match(/(.*)\s\((.*)\)/).slice(1);
   document.getElementById("phone").value = phone;

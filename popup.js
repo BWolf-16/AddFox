@@ -48,6 +48,7 @@ async function saveOrUpdateContact() {
   const city = document.getElementById("city").value;
   const state = document.getElementById("state").value;
   const country = document.getElementById("country").value;
+  const postcode = document.getElementById("postcode").value;
   const phone = document.getElementById("phone").value;
   const description = document.getElementById("description").value;
 

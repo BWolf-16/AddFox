@@ -59,7 +59,7 @@ async function saveOrUpdateContact() {
 
   const contact = {
     email,
-    address: `${street}, ${city}, ${state}, ${country}`,
+    address: `${street}, ${city}, ${state}, ${country}, ${postcode}`,
     phone: `${phone} (${description})`
   };
 

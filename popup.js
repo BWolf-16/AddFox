@@ -136,11 +136,11 @@ async function startEditing(index) {
 
   document.getElementById("email").value = contact.email;
   const [street, city, state, country, postcode] = contact.address.split(", ");
-  document.getElementById("street").value = street;
-  document.getElementById("city").value = city;
-  document.getElementById("state").value = state;
-  document.getElementById("country").value = country;
-  document.getElementById("postcode").value = postcode;
+document.getElementById("street").value = street;
+document.getElementById("city").value = city;
+document.getElementById("state").value = state;
+document.getElementById("country").value = country;
+document.getElementById("postcode").value = postcode;
 
   const [phone, description] = contact.phone.match(/(.*)\s\((.*)\)/).slice(1);
   document.getElementById("phone").value = phone;
